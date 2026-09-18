@@ -12,7 +12,6 @@ Diese Arbeit (LIS∞) formalisiert, dass diese **lokale Pulsleitung-Kommunikatio
 
 Dieser Leitfaden zeigt, wie Sie die Theorie praktisch umsetzen.
 
----
 
 ## Teil 1: Architektur-Analyse für Ihr System
 
@@ -111,7 +110,6 @@ Puls 3 (Zeit t+2):
 Konsequenz: Determiniert, unvermeidlich, lokal konsistent
 ```
 
----
 
 ## Teil 2: Von CPU.md zu LIS∞ — Die Implementierung
 
@@ -325,7 +323,6 @@ void cpu_run(Controller *ctrl, uint32_t *program, size_t prog_len) {
 }
 ```
 
----
 
 ## Teil 3: Register-Hierarchie und Lokalitätsprinzip
 
@@ -451,7 +448,6 @@ uint8_t cache_read(L2Cache *cache, uint16_t addr) {
 - **Durchschnitt:** ~5 Pulse pro Zugriff (statt 30)
 - **Speedup:** ~6x durch Lokalitätsprinzip
 
----
 
 ## Teil 4: Verifikation und Invarianten-Prüfung
 
@@ -568,7 +564,6 @@ bool verify_local_consistency(Controller *ctrl, ExecutionLog *log) {
 }
 ```
 
----
 
 ## Teil 5: Optimierungs-Strategien
 
@@ -619,7 +614,6 @@ for (int i = 0; i < 1000; i++) {
 // ~4000 Pulse
 ```
 
----
 
 ## Teil 6: Fehlerfall-Analyse
 
@@ -651,7 +645,6 @@ CPU2: r[0] = 99;    // Schreiben (gleichzeitig!)
 
 **Aber:** Mit zusätzlichen Schichten (z.B. Error-Correcting Codes) kann Robustheit erreicht werden.
 
----
 
 ## Teil 7: Vergleich mit anderen Architekturen
 
@@ -675,7 +668,6 @@ CPU2: r[0] = 99;    // Schreiben (gleichzeitig!)
 | **Programmiermodell** | Klassisch imperativ | SIMD (Single Instruction Multiple Data) |
 | **Determinismus** | Garantiert | Schwierig bei Race Conditions |
 
----
 
 ## Teil 8: Checkliste für die Implementierung
 
@@ -726,7 +718,6 @@ void test_error_multicore_conflict() {
 }
 ```
 
----
 
 ## Fazit: Von Theorie zur Praxis
 
@@ -741,7 +732,6 @@ Diese Implementierungs-Anleitung zeigt:
 **Die zentrale Botschaft:**
 > Optimale Programmausführung erfordert nicht globale Voraussicht, sondern lokale Konsistenz. Dieser Leitfaden zeigt, wie es praktisch funktioniert.
 
----
 
 **Nächste Schritte:**
 - Implementieren Sie die Registerdefinitionen

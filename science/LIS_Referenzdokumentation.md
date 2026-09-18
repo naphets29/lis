@@ -7,11 +7,10 @@
 3. [Theoreme (Hauptsätze)](#theoreme)
 4. [Korollare (Folgerungen)](#korollare)
 5. [Beweise — Zusammenfassung](#beweise)
-6. [Formeln und Mathematische Ausdrücke](#formeln)
+6. [Formeln und Mathematische Ausdrücke](#formeln-und-mathematische-ausdrücke)
 7. [Algorithmen-Pseudocode](#algorithmen)
-8. [Schnellreferenz-Tabellen](#schnellreferenz)
+8. [Schnellreferenz-Tabellen](#schnellreferenz-tabellen)
 
----
 
 ## Definitionen
 
@@ -32,7 +31,6 @@ wobei:
 
 **Beispiel:** Adressbus mit $m=16$ Pulsleitungen: $\ell_{a,1}, \ell_{a,2}, \ldots, \ell_{a,16}$
 
----
 
 ### D2: Lokale Information
 
@@ -47,7 +45,6 @@ wobei disjunkt (no overlap):
 
 **Zentrales Postulat:** Keine Komponente hat gleichzeitigen Zugriff auf alle Informationen.
 
----
 
 ### D3: Bus-System
 
@@ -82,7 +79,6 @@ $$\mathcal{C} = (\ell_{c,1}, \ell_{c,2}, \ell_{c,3})$$
 
 Nachricht: $\mathbf{c}(t) = (p(\ell_{c,1}, t), p(\ell_{c,2}, t), p(\ell_{c,3}, t)) \in \{0,1\}^3$
 
----
 
 ### D4: Register-Zustand
 
@@ -99,7 +95,6 @@ $$\mathcal{R}(t) \in \mathbb{R} = (\{0,1\}^w)^s$$
 
 **Größe:** $|\mathbb{R}| = 2^{s \cdot w}$ mögliche Zustände.
 
----
 
 ### D5: Kontroller-Automat
 
@@ -122,7 +117,6 @@ Takt t:
   3. Emittiere neue Steuersignale basierend auf q(t+1)
 ```
 
----
 
 ### D6: Konsequenzen-Determinismus
 
@@ -138,7 +132,6 @@ ist eine **partielle Funktion** (für alle gültigen Eingaben definiert) und **e
 
 **Intuition:** Wie die Sonne immer scheint (unvermeidlich), führt jeder konsistente Zustand zu genau einem Nachfolgezustand.
 
----
 
 ### D7: Lokale Konsistenz
 
@@ -159,7 +152,6 @@ Sei $W(t)$ die Menge aller Schreiboperationen bis Zeit $t$. Lokale Konsistenz er
 - Für alle $(i, t_1), (i, t_2) \in W(t)$ mit $t_1 < t_2$: Es gibt keine konkurrierende Operation zu demselben Register
 - Die Ordnung auf Schreiboperationen ist total (linear) und respektiert Kausalität
 
----
 
 ### D8: Programmabarbeitung
 
@@ -174,7 +166,6 @@ wobei:
 
 **Terminierung:** Die Abarbeitung endet, wenn die Instruktion HALT erreicht wird, oder läuft unendlich (Schleife).
 
----
 
 ## Lemmata
 
@@ -194,7 +185,6 @@ wobei:
 
 **Konklusion:** $\mathcal{R}(t+1)$ existiert und ist eindeutig.
 
----
 
 ### L2: Konsequenzen-Kette (Transitive Eindeutigkeit)
 
@@ -206,7 +196,6 @@ $$\forall t \in \mathbb{N}: (\mathcal{R}(t), q(t)) = \Gamma^t(\mathcal{R}(0), q_
 
 **Intuition:** Kein Zustand ist mehrdeutig. Die gesamte Abarbeitung ist eine determinierte Sequenz.
 
----
 
 ### L3: Lokale Konsistenz in LIS∞ (Invarianten)
 
@@ -222,7 +211,6 @@ $$\forall t \in \mathbb{N}: (\mathcal{R}(t), q(t)) = \Gamma^t(\mathcal{R}(0), q_
 
 **Beweis:** Struktur des LIS∞-Algorithmus garantiert jede Invariante durch Design.
 
----
 
 ### L4: Kontrollflussdeterminismus
 
@@ -236,7 +224,6 @@ $$\forall v_i, v_j \in G_{\text{exec}}: \text{Es gibt genau einen Pfad von } v_i
 
 **Konsequenz:** Keine non-deterministic choice points im Kontrollflussgraph.
 
----
 
 ### L5: Pulsoptimalität
 
@@ -253,7 +240,6 @@ $$\forall v_i, v_j \in G_{\text{exec}}: \text{Es gibt genau einen Pfad von } v_i
 - Daten müssen übertragen werden (1 Puls parallel)
 - Weniger ist unmöglich ohne Funktion zu beeinträchtigen
 
----
 
 ## Theoreme
 
@@ -297,7 +283,6 @@ $$\forall \pi' = (\text{Puls}_1', \ldots, \text{Puls}_{T'}') : T' < T \Rightarro
 
 **Konklusion:** $\pi$ ist **optimal** in der Anzahl der Pulsoperationen.
 
----
 
 ### T2: Lokalitätsprinzip ist optimal
 
@@ -321,7 +306,6 @@ $$f_{\text{häufig}}(w_i) \text{ hoch} \Rightarrow L_{j(w_i)} \text{ schnell (ni
 
 **Beweis:** Direkter Vergleich: Häufige Zugriffe in $L_1$ (1 Puls) vs. $L_3$ (50 Pulse) führt offensichtlich zu weniger Gesamtpulsen.
 
----
 
 ### T3: Hierarchische Konsequenzen
 
@@ -341,7 +325,6 @@ In einem System mit Register-Hierarchie $\mathcal{H} = (L_1, L_2, L_3, L_4)$ gel
 - Register-Hierarchie ist optimal strukturiert
 - Verstöße gegen diese Regeln führen zu nicht-optimaler Ausführung
 
----
 
 ## Korollare
 
@@ -354,7 +337,6 @@ Alle Systeme, die den vier Bedingungen von T1 genügen, haben **global optimale 
 - Register-Zugriffe
 - Datenbahn-Aktivierung
 
----
 
 ### K2: Skalierbarkeit
 
@@ -366,7 +348,6 @@ $$T_{\text{puls}} = \Theta(N)$$
 
 Die Ausführungszeit skaliert linear mit Programmgröße, unabhängig von Register-Hierarchie-Tiefe (unter Normalfall-Bedingungen).
 
----
 
 ### K3: Verifikationsfreundlichkeit
 
@@ -377,9 +358,8 @@ LIS∞-Systeme sind vollständig verifizierbar durch temporale Logik, da:
 - Keine non-deterministic choice points existieren
 - Invarianten sind formal beweisbar
 
----
 
-## Beweise — Zusammenfassung
+## Beweise
 
 | Lemma/Satz | Beweistyp | Länge | Schwierigkeit |
 |-----------|-----------|--------|----------------|
@@ -392,7 +372,6 @@ LIS∞-Systeme sind vollständig verifizierbar durch temporale Logik, da:
 | T2 | Vergleich | 0,5 Seite | Mittel |
 | T3 | Direkt | 1 Seite | Mittel |
 
----
 
 ## Formeln und Mathematische Ausdrücke
 
@@ -444,7 +423,6 @@ $$\text{Gesamtpulse} = \sum_{w \in W} f(w) \cdot C(w, L_{\text{gewählt}})$$
 Minimierung durch Lokalitätsprinzip:
 $$\min \sum_{w} f(w) \cdot C(w, L(w))$$
 
----
 
 ## Algorithmen
 
@@ -546,7 +524,6 @@ PROCEDURE check_local_consistency(R, q, history):
 END PROCEDURE
 ```
 
----
 
 ## Schnellreferenz-Tabellen
 
@@ -580,7 +557,6 @@ END PROCEDURE
 | Globalplanung | O(N log N) oder O(2^N) | O(N^2) | Mittel |
 | Out-of-Order Execution | O(N log N) | O(N) | Niedrig |
 
----
 
 ## Notations-Referenz
 
@@ -597,7 +573,6 @@ END PROCEDURE
 | $\pi$ | Pulssequenz | $(\text{Puls}_1, \ldots, \text{Puls}_T)$ |
 | $T_{\text{puls}}$ | Pulsanzahl | Total in Abarbeitung |
 
----
 
 ## Häufig gestellte Fragen (zur Referenz)
 
@@ -615,7 +590,3 @@ A: Mittels temporaler Logik (LTL) und model checking (UPPAAL, TLA+).
 
 **Q5: Gilt LIS∞ auch für Quantencomputer?**
 A: Noch unbekannt. Quantenmechanische Lokalität ist andersartig als klassische.
-
----
-
-**Ende der Referenzdokumentation**

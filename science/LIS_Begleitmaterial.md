@@ -25,7 +25,6 @@ Analog funktioniert ein Computer:
 
 Es gibt **keine globale Einsicht, keine magische Voraussicht**. Nur lokale, konsistente Operationen, deren Verkettung zu global optimalen Ergebnissen führt.
 
----
 
 ## II. Pulsleitungen: Die neue Denksweise
 
@@ -79,7 +78,6 @@ Zeit 4: LED leuchtet (Konsequenz)
 
 **Folgerung:** Die LED leuchtet nicht weil der Kontroller "global plant" oder weiß, dass es passieren wird. Die LED leuchtet, weil eine **unvermeidliche Konsequenz lokaler Operationen** eintritt.
 
----
 
 ## III. Lokale Information: Das Fundament
 
@@ -106,7 +104,6 @@ Das ist richtig beobachtet. Die Antwort ist: **Es gibt keine Hierarchie, sondern
 
 Der Mensch schreibt den Algorithmus *einmal*. Die CPU führt ihn *milliardenfach* aus, jedesmal mit lokaler Konsistenz, jedesmal optimal.
 
----
 
 ## IV. Konsequenzen-Determinismus: Das Kermprinzip
 
@@ -148,7 +145,6 @@ Ein System **mit** Konsequenzen-Determinismus:
 - Verifizierbar und testbar
 - Deterministisch, zuverlässig, sicher
 
----
 
 ## V. Lokale Konsistenz impliziert Globaloptimalität
 
@@ -190,7 +186,6 @@ Könnten wir sparen?
 Fazit: 3 Pulse sind minimal. Dies ist nicht weil der Designer es so wollte, sondern weil die Pulsleitung-Architektur es erzwingt.
 ```
 
----
 
 ## VI. LIS∞: Der Algorithmus
 
@@ -250,7 +245,6 @@ LIS∞ garantiert vier Invarianten (Lemma 4.1):
 
 Diese vier Invarianten **garantieren lokale Konsistenz**, und lokale Konsistenz **garantiert globale Optimalität**.
 
----
 
 ## VII. Register-Hierarchie: Lokale Information mit globaler Perspektive
 
@@ -293,7 +287,6 @@ Aber die **Ausführung** ist lokal: Das Register L1 weiß nicht, ob der Datensat
 
 **Ergebnis:** Globale Planung + lokale Ausführung = optimale Gesamtperformance.
 
----
 
 ## VIII. Kontrollflussdeterminismus
 
@@ -334,7 +327,6 @@ Label_B:
 
 (Natürlich: Mit anderen Initialwerten würde der Pfad anders laufen, aber für jeden Initialzustand gibt es genau einen Pfad.)
 
----
 
 ## IX. Praktische Konsequenzen für den Systemdesign
 
@@ -369,7 +361,6 @@ Bei Multicore:
 
 Die Theorie skaliert, aber die Komplexität des Multicore-Gedankenraumes ist größer.
 
----
 
 ## X. Vergleich mit klassischen Ansätzen
 
@@ -396,7 +387,6 @@ Die Theorie skaliert, aber die Komplexität des Multicore-Gedankenraumes ist gr�
 - Out-of-Order ist schneller in einigen Szenarien, aber komplexer
 - LIS∞ ist besser für embedded systems / Echtzeitsysteme
 
----
 
 ## XI. Die Philosophische Ebene: Mensch vs. Computer
 
@@ -430,7 +420,6 @@ Und dennoch: Ein Mensch entsteht, atmet, denkt — durch bloße lokale Zellkonsi
 
 **Konsequenz:** Lokale Konsistenz ist nicht inferior zu globaler Planung. Sie sind komplementär.
 
----
 
 ## XII. Epilog: Konsequenzen in der Natur und in Computern
 
@@ -454,7 +443,6 @@ Diese Arbeit versucht, diese Intuition zu formalisieren:
 
 Ein optimales System (Natur, Computer, oder menschliches Handeln) respektiert lokale Konsequenzen und nutzt sie optimal.
 
----
 
 ## Zusammenfassung der Kernbegriffe
 
@@ -468,7 +456,6 @@ Ein optimales System (Natur, Computer, oder menschliches Handeln) respektiert lo
 | **Lokalitätsprinzip** | Häufige Zugriffe sollten in schnelleren Layern sein | Dinge, die ich oft brauche, halte ich in Reichweite |
 | **LIS∞** | Algorithmus, der lokale Konsistenz nutzt | Natürliche Prozesse folgen lokalen Regeln |
 
----
 
 ## Ausblick: Zukünftige Forschung
 
@@ -478,8 +465,5 @@ Ein optimales System (Natur, Computer, oder menschliches Handeln) respektiert lo
 4. **Quantencomputer:** Gibt es lokale Konsistenz in Quantenbits?
 5. **Biologische Systeme:** Funktionieren biologische Prozesse auch durch lokale Konsistenz?
 
----
 
 **Autoren-Anmerkung:** Diese Arbeit versucht, eine Brücke zwischen Computerwissenschaft, Mathematik und Philosophie zu bauen. Sie basiert auf der Einsicht, dass Optimalität nicht durch globale Allomniscienz erreicht wird, sondern durch lokale Konsistenz und unvermeidliche Konsequenzen.
-
-"Die Wahrheit ist nicht in der Planung, sondern in der Ausführung. Und optimale Ausführung ist lokal konsistent, mathematisch beweisbar optimal, und folgt dem Prinzip der Konsequenzen wie die Natur selbst."
