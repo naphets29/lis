@@ -276,7 +276,10 @@ LTLFormula* ltl_deterministic_execution(void) {
 
 /* Verifikation einer LTL Formel gegen einen Zustandspfad */
 bool verify_ltl(LTLFormula *formula, uint32_t *state_sequence, uint32_t length) {
-    if (!formula) return true;
+    /* Simple void cast for unused variable */
+	(void)state_sequence;
+	
+	if (!formula) return true;
     
     switch (formula->op) {
         case LTL_GLOBALLY:

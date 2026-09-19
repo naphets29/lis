@@ -699,7 +699,7 @@ void print_bus_state(LISInfinitySystem *sys) {
 
 void print_memory_region(LISInfinitySystem *sys, uint16_t start, uint16_t end) {
     printf("\n=== SPEICHER-REGION [0x%04X - 0x%04X] ===\n", start, end);
-    for (uint16_t addr = start; addr <= end && addr < 65536; addr += 8) {
+    for (uint16_t addr = start; addr <= end; addr += 8) {
         printf("0x%04X: ", addr);
         for (int i = 0; i < 8; i++) {
             printf("%02X ", sys->mem->memory[addr + i]);

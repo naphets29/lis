@@ -333,7 +333,10 @@ bool invariant_pc_in_bounds(ExplorationState *state, uint32_t program_size) {
 
 /* Prüfe Invariante: Keine Race Conditions (von lokalem Zustand garantiert) */
 bool invariant_no_race_conditions(StateSpace *ss) {
-    /* LIS∞-Garantie: Lokale Konsistenz schließt Race Conditions aus */
+    /* Simple void cast for unused variable */
+	(void)ss;
+	
+	/* LIS∞-Garantie: Lokale Konsistenz schließt Race Conditions aus */
     return true;
 }
 
@@ -668,7 +671,8 @@ int main(void) {
     verify_all_invariants(ss, &ic);
     
     /* Test 6: Reachability-Analyse */
-    ReachabilityAnalysis *ra = analyze_reachability(ss, 0);
+	/* Comment off unused variable */
+    /* ReachabilityAnalysis *ra = analyze_reachability(ss, 0);*/
     
     /* Benchmarks */
     printf("\n╔════════════════════════════════════════════╗\n");
